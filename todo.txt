@@ -1,4 +1,6 @@
 
 ...
 . review all basics of vue .... 
-. 
+
+
++ article pour implementer du TS a revoir  :  https://blog.logrocket.com/how-to-write-a-vue-js-app-completely-in-typescript/
