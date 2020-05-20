@@ -10,11 +10,7 @@
 </template>
 
 <style lang="scss">
-   // variables 
-  $gutter-base : 30px;
-  $gutter-half :  $gutter-base / 2 ;
-  $border-default : 1px solid #CCC;
-
+  @import "./components/config/scss/_variables.scss";
   @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
   section.test {

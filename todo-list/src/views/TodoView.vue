@@ -1,6 +1,6 @@
 <template>
   <div class="todo-view">
-    <h1> Todo list </h1>
+    <h1> Todo list view </h1>
       <TodoList />
   </div>
 </template>
