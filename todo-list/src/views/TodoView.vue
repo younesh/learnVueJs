@@ -1,5 +1,9 @@
 <template>
   <div class="todo-view">
+     <p> NP : pour lancer le serveur json pour simuler l'api rest , lancer cette commande </p>
+     <code>
+       json-server --watch db.json --port 5151
+     </code>
     <h1> Todo list view </h1>
       <TodoList />
   </div>

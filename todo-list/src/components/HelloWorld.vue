@@ -119,6 +119,12 @@ export default class HelloWorld extends Vue {
 }
 </script>
 
+<script lang="ts">
+// import { appTitle } from "./components/config/ts/_variables"
+//  console.log(appTitle);
+  
+</script>
+
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 h3 {

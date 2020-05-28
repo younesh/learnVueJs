@@ -1,6 +1,7 @@
 
 ...
 . review all basics of vue .... 
-
+. mastering the Atomic design in vuejs context !! 
+. resolve a global variaables problems : vux way ? or others way !!
 
 + article pour implementer du TS a revoir  :  https://blog.logrocket.com/how-to-write-a-vue-js-app-completely-in-typescript/
