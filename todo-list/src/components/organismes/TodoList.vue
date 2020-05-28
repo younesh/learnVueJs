@@ -1,7 +1,7 @@
 <template>
   <div class="todo-list">
       <h2> Todo list ... </h2>
-      <TodoForm />
+      <TodoForm @addEmitTodo="addOneTodo" />
       <div v-for="todoItem in todosData" v-bind:key="todoItem.id">
             <TodoLine :todo="todoItem" @deleteTodoEmit="deleteOnTodo"/>
       </div>
@@ -45,13 +45,26 @@ export default class TodoList extends Vue {
    }
  
     public deleteOnTodo (todo : any): void {
-      console.log("link api rest ... " + this.ApiUrl);
+
       axios.delete(this.ApiUrl + todo.id)
             .then(()=>{
               // when remote delete success, then we can detete the front todo ! 
               console.log("todosData before deleting  ", this.todosData);
-              this.todosData = this.todosData.filter(itemTodo => itemTodo.id !== todo.id )
+              this.todosData = this.todosData.filter(( itemTodo : any )=> itemTodo.id !== todo.id )
               console.log("todosData after  deleting ", this.todosData);
+            })
+    }
+
+    public addOneTodo (taskTile : string) : void {
+      const postedTodo : any = {
+       title : taskTile,
+       completed: false
+      }
+      axios.post(this.ApiUrl , postedTodo )
+            .then( ( todoPost : any ) => {
+              console.log("Posted todo after then  : " , todoPost.data);
+              
+              this.todosData = [...this.todosData, todoPost.data]
             })
     }
 
