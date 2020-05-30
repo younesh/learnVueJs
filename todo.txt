@@ -5,3 +5,23 @@
 . resolve a global variaables problems : vux way ? or others way !!
 
 + article pour implementer du TS a revoir  :  https://blog.logrocket.com/how-to-write-a-vue-js-app-completely-in-typescript/
+
+
+-----------// TMP save // -----------------
+
+
+// DECLARE NEW TYPES
+    type todo = { //  en créer notre nouveau type employer … 
+          title : string;
+          completed : boolean;
+          id : number;
+      }
+
+
+// DECLARE A GLOBALE VARIABLES
+
+  declare  appTitle  = "applicat yns ";
+
+
+
+ //export default { appTitle };

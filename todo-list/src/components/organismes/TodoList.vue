@@ -24,7 +24,7 @@ export default class TodoList extends Vue {
 
   /* --- DATA VARIABLES ---*/
  private todosData:  Array<object> = []
- private ApiUrl  = "http://localhost:5151/todos/" 
+ private ApiUrl  =  "http://localhost:5151/todos/";  // this.$globalAppConfig.apiData 
 /* --- LIFE CYCLE ---*/
   created() {
     this.getTodosData();
