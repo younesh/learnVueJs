@@ -14,6 +14,8 @@ import { Component, Prop, Vue } from "vue-property-decorator";
   }
 })
 export default class CptName extends Vue {
+   /* --- PROPOS ---*/
+   @Prop() readonly props01!: string;
   /* --- DATA VARIABLES ---*/
    private var01: string = "welcome to my app"
    /* private datalist: Array<object> = [

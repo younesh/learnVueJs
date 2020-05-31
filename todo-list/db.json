@@ -7,18 +7,13 @@
     },
     {
       "title": "Helath tasks ...  ",
-      "completed": false,
+      "completed": true,
       "id": 3
     },
     {
       "title": "aller au maroc",
       "completed": false,
       "id": 4
-    },
-    {
-      "title": "Global.appTitle",
-      "completed": false,
-      "id": 5
     }
   ]
 }

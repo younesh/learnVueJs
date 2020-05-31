@@ -3,7 +3,7 @@
       <h2> Todo list ... </h2>
       <TodoForm @addEmitTodo="addOneTodo" />
       <div v-for="todoItem in todosData" v-bind:key="todoItem.id">
-            <TodoLine :todo="todoItem" @deleteTodoEmit="deleteOnTodo"/>
+            <TodoLine :todo="todoItem" @deleteTodoEmit="deleteOnTodo" @changeSatusTodoEmit="changeTodoStatus"/>
       </div>
       
   </div>
@@ -66,6 +66,13 @@ export default class TodoList extends Vue {
               
               this.todosData = [...this.todosData, todoPost.data]
             })
+    }
+
+    public changeTodoStatus (todostatus : any) {
+      axios.put(this.ApiUrl + todostatus.id, todostatus )
+            .then( ( todoPost : any ) => {
+              console.log(`le status de la tache (${todoPost.data.id}: ${todoPost.data.title}) est changé a ${todoPost.data.completed}`);
+            }) 
     }
 
 }

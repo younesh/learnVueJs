@@ -1,7 +1,7 @@
 <template>
   <div class="todo-line">
-      <h3 :class="{'is-completed' : todo.completed}"> 
-        <input type="checkbox" name="" id="">
+      <h3 :class="{'is-completed' : todo.completed}" @click="changeSatusTodo"> 
+        <input type="checkbox" name="" id=""  :checked="todo.completed">
         {{todo.title}}
        </h3>
        <div class="d-flex justify-content-end">
@@ -16,13 +16,22 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 
 @Component
 export default class TodoLine extends Vue {
- @Prop() readonly todo!: object;
+   /* --- PROPOS ---*/
+   @Prop() readonly todo!: any;
+
+   /* --- DATA VARIABLES ---*/
+  // private completedTodo: string = "welcome to my app"
 
   /* --- METHODES ---*/
      public deleteTodo(): void {
       // console.log("did you just click me now man !!! , am a delete button !! ");
        this.$emit("deleteTodoEmit", this.todo);
      }
+
+     public changeSatusTodo() : void {
+        this.todo.completed = !this.todo.completed;
+       this.$emit("changeSatusTodoEmit", this.todo);
+     } 
 }
 </script>
 <style lang="scss" scoped>

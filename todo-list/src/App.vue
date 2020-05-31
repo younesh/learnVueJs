@@ -5,6 +5,10 @@
       <router-link to="/todo">Todo list </router-link> |
       <router-link to="/about">About</router-link>
     </div>
+     <span> NB : to lunch this app : </span>
+     <code>
+       yarn serve --port 5051
+     </code>
     <router-view />
   </div>
 </template>
