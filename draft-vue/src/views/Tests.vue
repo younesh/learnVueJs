@@ -2,14 +2,16 @@
   <div class="tests">
     <h2>tests ...</h2>
     <Test01 txtTest="new text test .... at 16:54 " />
+    <Test02 />
   </div>
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import Test01 from "@/components/Test01.vue";
+import Test02 from "@/components/Test02.vue";
 @Component({
   components: {
-    Test01
+    Test01, Test02
   }
 })
 export default class Tests extends Vue {}

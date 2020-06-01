@@ -1,5 +1,6 @@
 <template>
     <section class="test01 test">
+        <h1> {{ appName }}</h1>
         <h3> test01 : qq tests type script ... </h3>
        <p> txtTest propos say : {{txtTest}} </p> 
        <button @click="typeTest"> test type TS</button> >> {{outType}} <br/>
@@ -11,11 +12,13 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
+import ConfigTS from "../config/ConfigTS";
 
 @Component
 export default class Test01 extends Vue {
   @Prop() private txtTest!: string; // les propos
-  private outType = "defult"; // une variable ds Data () 
+  private outType = "defult"; // une variable ds Data ()
+  private appName = ConfigTS.nameApp;
   
   public typeTest() : void {  // un méthode ds méthode : 
       

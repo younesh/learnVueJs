@@ -1,7 +1,7 @@
 <template>
   <div class="todo-line">
       <h3 :class="{'is-completed' : todo.completed}" @click="changeSatusTodo"> 
-        <input type="checkbox" name="" id=""  :checked="todo.completed">
+        <input type="checkbox" name="" id="" :checked="todo.completed">
         {{todo.title}}
        </h3>
        <div class="d-flex justify-content-end">
