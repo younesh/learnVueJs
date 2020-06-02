@@ -43,7 +43,7 @@ import { Component, Prop, Vue } from "vue-property-decorator";
     // ChildCpt
   }
 })
-export default class CptName extends Vue {
+export default class Test02 extends Vue {
    /* --- PROPOS ---*/
    @Prop() readonly props01!: string;
   /* --- DATA VARIABLES ---*/
@@ -129,32 +129,7 @@ export default class CptName extends Vue {
 
    }
 
-   /*
-   
-       ALgoPointJointure () {
-      let s1 = Number(this.APJ_s1);
-      let s2 = Number(this.APJ_s2);
-      if (s1 > 0 && s2 > 0) {
-        while (s1!=s2 && s1 < 20000 ) {
-                // s1 
-                s1=s1 + this.sumChiffreDuNbr(s1);
-                s2=s2 + this.sumChiffreDuNbr(s2);
-                console.log("S1 :" + s1);
-                console.log("S2 :" + s2);
-        }
-        if (s1 == s2 ) this.APJ_result = s1;
-        else this.APJ_result = "pas de jointure avant 20000 "; 
-      }
-    },
-    sumChiffreDuNbr (nbr) {
-      let chaine = nbr.toString();
-      let sum = 0;
-      for (let i = 0; i < chaine.length; i++ ) {
-        sum += Number(chaine[i]);
-      }
-      return sum; 
-    }
-    */
+
 
 }
 </script>
