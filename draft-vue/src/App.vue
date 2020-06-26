@@ -7,6 +7,8 @@
       <router-link to="/TestsAlgo">Tests Algo</router-link>
     </div>
     <router-view />
+
+    <code> yarn serve --port 6100 </code>
   </div>
 </template>
 

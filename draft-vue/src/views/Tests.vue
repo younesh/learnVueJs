@@ -3,15 +3,17 @@
     <h2>tests ...</h2>
     <Test01 txtTest="new text test .... at 16:54 " />
     <Test02 />
+    <WpAPI />
   </div>
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import Test01 from "@/components/Test01.vue";
 import Test02 from "@/components/Test02.vue";
+import WpAPI from "@/components/WpAPI.vue";
 @Component({
   components: {
-    Test01, Test02
+    Test01, Test02, WpAPI
   }
 })
 export default class Tests extends Vue {}
