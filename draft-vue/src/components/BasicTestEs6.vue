@@ -1,10 +1,10 @@
 <!-- replace cpt-name and  CptName by new cpt name-->
 <template>
-  <section class="test wp-api">
-      <div v-for="postItem in allPosts" :key="postItem.id" class="test">
-          <h3 v-html="postItem.title.rendered"> </h3>
-          <div v-html="postItem.excerpt.rendered"></div>
-      </div>
+  <section class="test basic-test-es6">
+      <h3> Les test basics du ES 6 </h3>
+     <hr />
+     <h4> test des promise ... </h4>
+
   </section>
 </template>
 
@@ -18,11 +18,12 @@ import axios from "axios";
     // ChildCpt
   }
 })
-export default class CptName extends Vue {
+export default class BasicTestEs6 extends Vue {
    /* --- PROPOS ---*/
    @Prop() readonly props01!: string;
   /* --- DATA VARIABLES ---*/
    private allPosts : Array<object> = [];
+   private moduleName  = "BasicTestEs6 ";
    /* private datalist: Array<object> = [
       {
         name: 'dupon',
@@ -36,16 +37,17 @@ export default class CptName extends Vue {
     */ 
 /* --- LIFE CYCLE ---*/
  created() {
-   console.log("LIFE-CYCLE / created  ");
-   this.getPosts();
+   console.log(this.moduleName + " : LIFE-CYCLE / created  ");
  }
 
   mounted() {
-     console.log("LIFE-CYCLE / mounted  ");
+     console.log(this.moduleName + ": LIFE-CYCLE / mounted  ");
+      this.getHour ();
+      this.makeZero(7);
   }
 
   beforeUpdate() {
-     console.log("LIFE-CYCLE / beforeUpdate  ");
+     console.log(this.moduleName + ": LIFE-CYCLE / beforeUpdate  ");
   }
 
   /*----- COMPUTED PROPERTIES -----*/
@@ -54,13 +56,26 @@ export default class CptName extends Vue {
   /* --- METHODES ---*/
    public doSimthing(): void {
       console.log('doSimthing methode !! ')
+
    }
 
-   public getPosts() { 
-       axios.get("http://fariso.net/fr/wp-json/wp/v2/posts")
-            .then ( res=> this.allPosts = res.data )
-            .catch(err => console.log(err))
-   }
+ public getHour () {
+    const date = new Date();
+    console.log(this.makeZero(date.getHours()) + ":" + this.makeZero(date.getMinutes()) + ":" + this.makeZero(date.getSeconds()));
+ }
+
+public makeZero (nbr : number) {
+ console.log(`le nbr de chiffre ${nbr} :` , nbr.toString().length);
+ if (nbr.toString().length < 2) {
+     return "0" + nbr;
+ }
+ else
+ {
+     return nbr;
+ }
+}
+
+// faire es test des promise ...------------------------------------------------------------------------------------------------
 
 }
 </script>

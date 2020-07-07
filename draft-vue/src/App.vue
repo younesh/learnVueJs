@@ -8,7 +8,7 @@
     </div>
     <router-view />
 
-    <code> yarn serve --port 6100 </code>
+    <code> yarn serve --port 6200 </code>
   </div>
 </template>
 

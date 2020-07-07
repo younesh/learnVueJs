@@ -1,6 +1,7 @@
 <template>
   <div class="tests">
     <h2>tests ...</h2>
+    <BasicTestEs6 />
     <Test01 txtTest="new text test .... at 16:54 " />
     <Test02 />
     <WpAPI />
@@ -11,9 +12,10 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 import Test01 from "@/components/Test01.vue";
 import Test02 from "@/components/Test02.vue";
 import WpAPI from "@/components/WpAPI.vue";
+import BasicTestEs6 from "@/components/BasicTestEs6.vue";
 @Component({
   components: {
-    Test01, Test02, WpAPI
+    Test01, Test02, WpAPI, BasicTestEs6
   }
 })
 export default class Tests extends Vue {}
