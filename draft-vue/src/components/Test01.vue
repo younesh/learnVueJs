@@ -183,7 +183,7 @@ export default class Test01 extends Vue {
 
    /* --- LIFE CYCLE ---*/
  created() {
-   console.log("LIFE-CYCLE / created  ");
+   // console.log("LIFE-CYCLE / created  ");
    // this.interfaceTest();
    //  this.heritageTest();
    //  this.interfaceFctTest(); 

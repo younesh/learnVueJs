@@ -24,6 +24,7 @@ export default class BasicTestEs6 extends Vue {
   /* --- DATA VARIABLES ---*/
    private allPosts : Array<object> = [];
    private moduleName  = "BasicTestEs6 ";
+   private usersList = [] 
    /* private datalist: Array<object> = [
       {
         name: 'dupon',
@@ -38,16 +39,36 @@ export default class BasicTestEs6 extends Vue {
 /* --- LIFE CYCLE ---*/
  created() {
    console.log(this.moduleName + " : LIFE-CYCLE / created  ");
- }
+
+
+const getUsers = async function() {
+    const response = await fetch('https://jsonplaceholder.typicode.com/users')
+    const json = await response.json()
+ 
+    return json
+}
+ 
+// Call the getUsers function and log the response
+getUsers().then(response => console.log(response));
+ // ---------------
+
+ //  const ob = 
+
+ } // created()
+
+ /* ------------------------- */
+
+ /* ------------------------- */
 
   mounted() {
-     console.log(this.moduleName + ": LIFE-CYCLE / mounted  ");
-      this.getHour ();
-      this.makeZero(7);
+      console.log(this.moduleName + ": LIFE-CYCLE / mounted  ");
+     // console.log("RETOUR de giveHoureAfterXSecend : " ,  this.giveHoureAfterXSecend (2));
+
   }
 
   beforeUpdate() {
      console.log(this.moduleName + ": LIFE-CYCLE / beforeUpdate  ");
+
   }
 
   /*----- COMPUTED PROPERTIES -----*/
@@ -59,19 +80,24 @@ export default class BasicTestEs6 extends Vue {
 
    }
 
- public getHour () {
-    const date = new Date();
-    console.log(this.makeZero(date.getHours()) + ":" + this.makeZero(date.getMinutes()) + ":" + this.makeZero(date.getSeconds()));
+ public giveHoureAfterXSecend ( second : number) { 
+   return setInterval( () => this.getHour, second * 1000 );
  }
 
-public makeZero (nbr : number) {
- console.log(`le nbr de chiffre ${nbr} :` , nbr.toString().length);
+ public getHour () : string {
+    const date = new Date();
+    // console.log("HEURE NOW ! :" + this.makeZero(date.getHours()) + ":" + this.makeZero(date.getMinutes()) + ":" + this.makeZero(date.getSeconds()));
+    return "HEURE NOW ! :" + this.makeZero(date.getHours()) + ":" + this.makeZero(date.getMinutes()) + ":" + this.makeZero(date.getSeconds());
+ }
+
+public makeZero (nbr : number) :string {
+ // console.log(`le nbr de chiffre ${nbr} :` , nbr.toString().length);
  if (nbr.toString().length < 2) {
      return "0" + nbr;
  }
  else
  {
-     return nbr;
+     return "" + nbr;
  }
 }
 
@@ -79,8 +105,3 @@ public makeZero (nbr : number) {
 
 }
 </script>
-
-<style lang="scss" scoped>
- //@import "@/components/config/scss/_variables.scss";
-
-</style>
