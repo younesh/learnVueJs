@@ -25,3 +25,7 @@
 
 
  //export default { appTitle };
+
+
+ // to start a vueProject 
+  yarn serve --port 6200

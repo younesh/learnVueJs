@@ -4,6 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/tests">Tests</router-link> |
+      <router-link to="/DesignSystem">DesignSystem</router-link> |
       <router-link to="/TestsAlgo">Tests Algo</router-link>
     </div>
     <router-view />
@@ -22,6 +23,6 @@
   section.test {
     padding: $gutter-half;
     margin-bottom: $gutter-half;
-    border: $border-default; 
+    border: $border-default;
   }
 </style>
