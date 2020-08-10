@@ -1,0 +1,82 @@
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+<div id="exercise">
+    <!-- 1) Fill the <p> below with your Name and Age - using Interpolation -->
+    <p>VueJS is pretty cool - {{your_name}} ({{age}})</p>
+    <!-- 2) Output your age, multiplied by 3 -->
+    <p>{{ age * 3 }}</p>
+    <!-- 3) Call a function to output a random float between 0 and 1 (Math.random()) -->
+    <p> {{ randomFloat() }} </p>
+    <!-- 4) Search any image on Google and output it here by binding the "src" attribute -->
+    <div>
+        <img style="width:100px;height:100px" :src="googleImg">
+    </div>
+    <!-- 5) Pre-Populate this input with your name (set the "value" attribute) -->
+    <div>
+        <input type="text" v-model="your_name">
+    </div>
+
+    <!-- 22. Modifying an Event - with Event Modifiers  -->
+    <div @mousemove="updateCoordonnee" class="test22">
+
+        x: {{ x }} <br> y: {{ y }}
+
+        <div @mousemove.stop="stopPropa" class="stopPropag"> STOP PROPOGATION EVENT !!! </div>
+        <div @click.prevent=""> PREVENT EVENT ! </div>
+        <form v-on:submit.prevent> ... </form>
+    </div>
+
+    <!--  23. Listening to Keyboard Events  -->
+    <div class="test">
+        <input @keyup.enter.space="alertMe" type="text" name="" id="">
+    </div>
+
+</div>
+
+<script>
+    // You may of course also outsource this script code into a separate file (e.g. app.js) and simply import this file here
+    new Vue({
+        el: '#exercise',
+        data: {
+            your_name: "younesC",
+            age: 32,
+            googleImg: "https://i.skyrock.net/6106/19836106/pics/564914528.jpg",
+            x: 0,
+            y: 0,
+        },
+        methods: {
+            randomFloat: function() {
+                return Math.random();
+            },
+            updateCoordonnee: function(event) {
+                this.x = event.clientX;
+                this.y = event.clientY;
+            },
+            stopPropa: function(event) {
+                event.stopPropagation();
+            },
+            /* 22 */
+            alertMe: function() {
+                alert(" AlertMe !! ")
+            }
+        }
+    })
+</script>
+
+<style>
+    .test {
+        padding: 10px;
+        margin: 10px;
+        border: solid 1px #ccc;
+    }
+    
+    .test22 {
+        background-color: yellow;
+    }
+    
+    .test22 .stopPropag {
+        border: solid 2px red;
+        padding: 10px;
+        margin: 10px;
+    }
+</style>

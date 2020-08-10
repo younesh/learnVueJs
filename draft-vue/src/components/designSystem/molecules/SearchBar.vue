@@ -51,7 +51,7 @@ export default class SearchBar extends Vue {
 
   /* --- METHODES ---*/
    public pathImg(path :string): void {
-      return require(path);
+      // return require(path);
    }
 
 }
