@@ -1,0 +1,40 @@
+<script src="../vue.js"></script>
+<h2> Dynamic Styling css ( from chap 29 to 33 ) </h2>
+<div id="DynamicStyling">
+    <div class="demo" :class="{red : attachedRed, green : !attachedRed }" @click="attachedRed = !attachedRed"></div>
+    <div class="demo" :class="{green : attachedGreen }" @click="attachedGreen = !attachedGreen"></div>
+    <div class="demo" :class="blueClass" @click="attachedBlue = !attachedBlue"></div>
+    <div class="demo" :class="[color, {green : attachedGreen }]" @click="attachedGreen = !attachedGreen">var color</div>
+    <input type="text" v-model="color">
+
+    <div class="demo" :style="[myStyle, {marginTop: '50px'}]"> myStyle </div>
+    <!-- myStyle >> computed  -->
+</div>
+<!-- ici si attachedRed = true, donc la div.demo sera rouge, et au 1er click il deviendra verte !  -->
+<script src="app.js"></script>
+
+<style>
+    .demo {
+        display: inline-block;
+        margin-left: 5px;
+        width: 50px;
+        height: 50px;
+        background-color: gray;
+    }
+    
+    .red {
+        background-color: red;
+    }
+    
+    .green {
+        background-color: green;
+    }
+    
+    .blue {
+        background-color: blue;
+    }
+    
+    .pink {
+        background-color: pink;
+    }
+</style>

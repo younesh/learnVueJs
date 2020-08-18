@@ -1,0 +1,94 @@
+<script src="https://npmcdn.com/vue/dist/vue.js"></script>
+<h2> exercice 4 ( styling ) </h2>
+<div id="exercise">
+    <!-- OK# 1) Start the Effect with the Button. The Effect should alternate the "highlight" or "shrink" class on each new setInterval tick (attach respective class to the div with id "effect" below) -->
+    <hr>
+    <h3> exo 1 </h3>
+    <div>
+        <button @click="startEffect">Start Effect</button>
+        <div id="effect"></div>
+    </div>
+    <!-- OK#  2) Create a couple of CSS classes and attach them via the array syntax -->
+    <hr>
+    <h3> exo 2 : </h3>
+    <div :class="['bgRed', 'W250']">I got no class :(</div>
+    <!--OK# 3) Let the user enter a class (create some example classes) and attach it -->
+    <div>
+        <hr>
+        <h3> exo 3: </h3>
+        <p> exemple user class test : bgBlue ; bgYellow </p>
+        <input type="text" v-model="userClass">
+        <div :class="userClass"> .... </div>
+    </div>
+    <!-- KO!  4) Let the user enter a class and enter true/ false for another class (create some example classes) and attach the classes -->
+    <div>
+        <hr>
+        <h3> exo 4 : </h3>
+        <input type="text" v-model="userClass">
+        <input type="text" v-model="enbableClass">
+        <div :class="[{ showBox : enbableClass },  userClass]"> 4. exo </div>
+    </div>
+    <!-- OK#  5) Repeat 3) but now with values for styles (instead of class names). Attach the respective styles.  -->
+    <div>
+        <hr>
+        <h3> exo 5</h3>
+        <input type="text" v-model="userStyle">
+        <div :style="myStyle"> myStyle </div>
+    </div>
+    <!--OK# 6) Create a simple progress bar with setInterval and style bindings. Start it by hitting the below button. -->
+    <div>
+        <hr>
+        <h3> exo 6 :</h3>
+        <button @click="startProgressBar">Start Progress</button>
+        <div> a progress bar : <progress id="file" max="100" :value="progressBarValue"> {{ progressBarValue }}</progress></div>
+        <div>
+            a stylish div
+            <div class="progressBarDiv" :style="{width : progressBarValue}">
+                ...
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    #effect {
+        width: 100px;
+        height: 100px;
+        background-color: gray;
+    }
+    
+    #effect.highlight {
+        background-color: red;
+    }
+    
+    #effect.shrink {
+        background-color: green;
+    }
+    
+    .bgRed {
+        background-color: red;
+    }
+    
+    .showBox {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .W250 {
+        width: 250px;
+    }
+    
+    .bgBlue {
+        background-color: blue;
+    }
+    
+    .bgYellow {
+        background-color: yellow;
+    }
+    
+    .progressBarDiv {
+        display: inline-block;
+        background-color: violet;
+    }
+</style>
+
+<script src="app.js"></script>

@@ -4,7 +4,7 @@
     <!-- 1) Fill the <p> below with your Name and Age - using Interpolation -->
     <p>VueJS is pretty cool - {{your_name}} ({{age}})</p>
     <!-- 2) Output your age, multiplied by 3 -->
-    <p>{{ age * 3 }}</p>
+    <p>{{ age>18 ? "adulte" : "mineur" }}</p>
     <!-- 3) Call a function to output a random float between 0 and 1 (Math.random()) -->
     <p> {{ randomFloat() }} </p>
     <!-- 4) Search any image on Google and output it here by binding the "src" attribute -->
@@ -30,7 +30,23 @@
     <div class="test">
         <input @keyup.enter.space="alertMe" type="text" name="" id="">
     </div>
+    <!-- 25. Using Two-Way-Binding ( v-model )   -->
+    <h4> 25. Using Two-Way-Binding ( v-model )</h4>
+    <div>
+        <input type="text" v-model="v25"> => {{v25}}
+    </div>
 
+    <!--  26. Reacting to Changes with Computed :   -->
+    <h4> 26. Reacting to Changes with Computed : </h4>
+    <div>
+        <button @click="count26++"> count++ </button> {{ count26 }} ==> {{ isMultiplOfFive }}
+    </div>
+
+    <!--   h4  -->
+    <h4> 27. An Alternative to Computed Properties: Watching for Changes </h4>
+    <div>
+        <button @click="count27++"> count++ </button> {{ count27 }}
+    </div>
 </div>
 
 <script>
@@ -39,10 +55,16 @@
         el: '#exercise',
         data: {
             your_name: "younesC",
-            age: 32,
+            age: 31,
             googleImg: "https://i.skyrock.net/6106/19836106/pics/564914528.jpg",
             x: 0,
             y: 0,
+            /* 26 */
+            v25: "",
+            /* 26 */
+            count26: 0,
+            /* 27 */
+            count27: 0,
         },
         methods: {
             randomFloat: function() {
@@ -57,9 +79,29 @@
             },
             /* 22 */
             alertMe: function() {
-                alert(" AlertMe !! ")
+                    alert(" AlertMe !! ")
+                }
+                /* 22 */
+        },
+        computed: {
+            isMultiplOfFive: function() {
+                if (this.count26 % 5 == 0) {
+                    return "Yes, it's a multiple of 5 !"
+                } else {
+                    return "It's not a multiple of 5, No !"
+                }
+            }
+        },
+        watch: {
+            count27: function(v) {
+                console.log("vous avez saisi : " + v + "!!! ");
+                if (v % 5 == 0) {
+                    this.count27 /= 5;
+                }
             }
         }
+
+
     })
 </script>
 
