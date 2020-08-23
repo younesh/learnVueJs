@@ -47,6 +47,75 @@
     <div>
         <button @click="count27++"> count++ </button> {{ count27 }}
     </div>
+
+    <!--  37. Conditional Rendering with v-if  -->
+    <h4> 37. Conditional Rendering with v-if </h4>
+    <p> you have {{age}} years old !, so :</p>
+    <p class="case01" v-if="(age<18)"> you'are mineur ! </p>
+    <p class="case02" v-else> you are <strong> major !! </strong> </p>
+
+    <!--  39. Using an Alternative v-if Syntax : <template> -->
+    <h4> 39. Using an Alternative v-if Syntax </h4>
+    <template v-if="(age<18)">
+        <p> vous étes mineur ! </p>
+         <p> donc vous ne pouvez pretendre a ce  <span>poste</span> </p>
+         <strong> bon courage gamin !  </strong>
+    </template>
+    <template v-if="(age>18)">
+        <p> vous étes majour ! </p>
+         <p> donc vous  pouvez pretendre a ce  <span>poste</span> sans pb !! </p>
+         <strong> merci </strong>
+    </template>
+
+    <!--  40. Don't Detach it with v-show  -->
+    <h4> 40. Don't Detach it with v-show
+    </h4>
+    <p class="case01" v-show="(age<18)"> you'are mineur ! </p>
+    <p class="case01" v-show="(age>18)"> you are <strong> major! </strong> </p>
+
+    <!-- 41. Rendering Lists with v-for  -->
+    <h4> 41. Rendering Lists with v-for </h4>
+    <div>
+        <strong>ingrediants : </strong>
+        <ul>
+            <li v-for="ingrediant in ingrediants"> {{ingrediant}}</li>
+        </ul>
+    </div>
+
+    <!--  42. Getting the Current Index  -->
+    <h4> 42. Getting the Current Index </h4>
+
+    <ul>
+        <li v-for="(ingrediant, i) in ingrediants"> {{ingrediant}} ({{i}}) </li>
+    </ul>
+
+    <!--  43. Using an Alternative v-for Syntax  -->
+    <h4> 43. Using an Alternative v-for Syntax ( template ) </h4>
+    <template v-for="(ingrediant, i) in ingrediants">
+        <span> {{ingrediant}} </span> <strong> [ {{i}} ] </strong>
+    </template>
+
+    <!--  44. Looping through Objects -->
+    <h4> 44. Looping through Objects </h4>
+    <ul>
+        <li v-for="person in persons"> {{person.name}} has {{person.age}} years </li>
+    </ul>
+
+    <ul>
+        <li v-for="person in persons">
+            <span v-for="(value, key, index) in person"> ({{index}}) > [{{key}} : {{value}} ]  -</span>
+        </li>
+    </ul>
+
+
+    <!--  45. Looping through a List of Numbers  -->
+    <h4> 45. Looping through a List of Numbers ( boocle sur des nombres ... ) </h4>
+
+    <template v-for="n in 10">
+       {{n}} -
+    </template>
+
+
 </div>
 
 <script>
@@ -65,6 +134,22 @@
             count26: 0,
             /* 27 */
             count27: 0,
+
+            /* 41 */
+            ingrediants: ["meat", "fruit", "eggs", "butter", "sugar"],
+            persons: [{
+                name: "batman",
+                age: "45",
+                function: "super Hero"
+            }, {
+                name: "Mario",
+                age: "42",
+                function: "Game hero"
+            }, {
+                name: "Naruto",
+                age: "17",
+                function: "Mangas hero"
+            }, ]
         },
         methods: {
             randomFloat: function() {
