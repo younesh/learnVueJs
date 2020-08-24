@@ -1,7 +1,8 @@
 <!-- replace cpt-name and  CptName by new cpt name-->
 <template>
   <section class="test wp-api">
-      <div v-for="postItem in allPosts" :key="postItem.id" class="test">
+      <input type="text" name="" id="" v-model="searchInput" placeholder="KeysWord ...  ">  ==> result found {{ filteredList.length }}
+      <div v-for="postItem in filteredList" :key="postItem.id" class="test">
           <h3 v-html="postItem.title.rendered"> </h3>
           <div v-html="postItem.excerpt.rendered"></div>
       </div>
@@ -23,6 +24,7 @@ export default class CptName extends Vue {
    @Prop() readonly props01!: string;
   /* --- DATA VARIABLES ---*/
    private allPosts : Array<object> = [];
+   private searchInput = "";
    /* private datalist: Array<object> = [
       {
         name: 'dupon',
@@ -42,6 +44,7 @@ export default class CptName extends Vue {
 
   mounted() {
      console.log("LIFE-CYCLE / mounted  ");
+     console.log(" allPosts length : " , this.allPosts);
   }
 
   beforeUpdate() {
@@ -58,9 +61,31 @@ export default class CptName extends Vue {
 
    public getPosts() { 
        axios.get("http://fariso.net/fr/wp-json/wp/v2/posts")
-            .then ( res=> this.allPosts = res.data )
+            //.then ( (rep : any) => rep.json())
+            .then ( (res : any)=> {
+                
+                // this.allPosts = res.data;
+                 // this.allPosts = res.data; 
+                 res.data.map( (item : any) => {
+                  //   console.log( " item : ",  item);
+                    this.allPosts.push (item);
+                 })
+                }  )
             .catch(err => console.log(err))
    }
+
+   
+  /*----- COMPUTED PROPERTIES -----*/
+  get filteredList(): any {
+    // faut filtrer le tab des post global ( this.allPosts ) a ceux egale au chemps ( this.searchInput )
+    return  this.allPosts.filter((post : any) => {
+        // post.title.rendered = post.title.rendered.toLowerCase().replaceAll(this.searchInput.toLowerCase(), "<mark>" + this.searchInput + "</mark>" );
+        console.log("filteredList ... ");
+        
+        return ( post.title.rendered.toLowerCase().includes(this.searchInput.toLowerCase()) || post.excerpt.rendered.toLowerCase().includes(this.searchInput.toLowerCase()) ) 
+    }); 
+  }
+
 
 }
 </script>
