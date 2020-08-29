@@ -15,11 +15,14 @@ import axios from "axios";
 // import ChildCpt from "../../ChildCpt.vue"; /* to import a child component */
 
 @Component({
-    components: {
-    // ChildCpt
+ name: 'WpAPI',
+  filters: {
+    filterName(value: any) : string {
+      return value.toUpperCase();
+    }
   }
 })
-export default class CptName extends Vue {
+export default class WpAPI extends Vue {
    /* --- PROPOS ---*/
    @Prop() readonly props01!: string;
   /* --- DATA VARIABLES ---*/
@@ -63,13 +66,11 @@ export default class CptName extends Vue {
        axios.get("http://fariso.net/fr/wp-json/wp/v2/posts")
             //.then ( (rep : any) => rep.json())
             .then ( (res : any)=> {
-                
-                // this.allPosts = res.data;
-                 // this.allPosts = res.data; 
-                 res.data.map( (item : any) => {
-                  //   console.log( " item : ",  item);
+
+                this.allPosts = res.data; 
+                /* res.data.map( (item : any) => {
                     this.allPosts.push (item);
-                 })
+                 }) */
                 }  )
             .catch(err => console.log(err))
    }
@@ -82,11 +83,10 @@ export default class CptName extends Vue {
         // post.title.rendered = post.title.rendered.toLowerCase().replaceAll(this.searchInput.toLowerCase(), "<mark>" + this.searchInput + "</mark>" );
         console.log("filteredList ... ");
         
-        return ( post.title.rendered.toLowerCase().includes(this.searchInput.toLowerCase()) || post.excerpt.rendered.toLowerCase().includes(this.searchInput.toLowerCase()) ) 
+        return ( post.title.rendered.toLowerCase().includes(this.searchInput.toLowerCase()) 
+                || post.excerpt.rendered.toLowerCase().includes(this.searchInput.toLowerCase()) ) 
     }); 
   }
-
-
 }
 </script>
 
