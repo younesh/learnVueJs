@@ -115,41 +115,63 @@
        {{n}} -
     </template>
 
+    <!-- 46. Keeping Track of Elements when using v-for -->
+    <h4> 46. Keeping Track of Elements when using v-for </h4>
+    <ul>
+        <li v-for="person in persons" :key="person.person">
+            <span v-for="(value, key, index) in person" :key="value"> ({{index}}) > [{{key}} : {{value}} ]  -</span>
+        </li>
+    </ul>
+    <button @click="persons.push({name: 'new-person', age: '00', function: 'unknown function'})"> add person ! </button>
+
+    <div v-for="(ingrediant, i) in ingrediants" :key="ingrediant">
+        <span> {{ingrediant}} </span> <strong> [ {{i}} ] </strong>
+    </div>
+    <button @click="ingrediants.push('spice-' + new Date().getTime())"> add ingredient </button>
+    <button @click="ingrediants[3] = 'fromage'"> changer la valeur de l 'index 3 {{ ingrediants[3] }}</button>
+    <hr>
+    <button @click="$set(ingrediants, index46, value46) "> change this case </button>
+    <input type="text" name="" id="" placeholder="Index" v-model="index46">
+    <input type="text" name="" id="" placeholder="value" v-model="value46">
 
 </div>
 
 <script>
     // You may of course also outsource this script code into a separate file (e.g. app.js) and simply import this file here
-    new Vue({
-        el: '#exercise',
+    vm = new Vue({
+        el: '#exercise ',
         data: {
-            your_name: "younesC",
+            your_name: "younesC ",
             age: 31,
-            googleImg: "https://i.skyrock.net/6106/19836106/pics/564914528.jpg",
+            googleImg: "https://i.skyrock.net/6106/19836106/pics/564914528.jpg ",
             x: 0,
             y: 0,
             /* 26 */
-            v25: "",
+            v25: " ",
             /* 26 */
             count26: 0,
             /* 27 */
             count27: 0,
 
             /* 41 */
-            ingrediants: ["meat", "fruit", "eggs", "butter", "sugar"],
+            ingrediants: ["meat ", "fruit ", "eggs ", "butter ", "sugar "],
             persons: [{
-                name: "batman",
-                age: "45",
-                function: "super Hero"
+                name: "batman ",
+                age: "45 ",
+                function: "super Hero "
             }, {
-                name: "Mario",
-                age: "42",
-                function: "Game hero"
+                name: "Mario ",
+                age: "42 ",
+                function: "Game hero "
             }, {
-                name: "Naruto",
-                age: "17",
-                function: "Mangas hero"
-            }, ]
+                name: "Naruto ",
+                age: "17 ",
+                function: "Mangas hero "
+            }, ],
+
+            /*46*/
+            index46: 0,
+            value46: "",
         },
         methods: {
             randomFloat: function() {
@@ -171,9 +193,9 @@
         computed: {
             isMultiplOfFive: function() {
                 if (this.count26 % 5 == 0) {
-                    return "Yes, it's a multiple of 5 !"
+                    return "Yes, it 's a multiple of 5 ! "
                 } else {
-                    return "It's not a multiple of 5, No !"
+                    return "It 's not a multiple of 5, No ! "
                 }
             }
         },
