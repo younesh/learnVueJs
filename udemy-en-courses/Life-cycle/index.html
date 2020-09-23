@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>life cycle .. </title>
+</head>
+
+<body>
+
+    <div id="life-cycle-wrapper">
+        {{ title }}
+
+        <button @click="title = 'changed at '  + new Date()"> Change title !! </button>
+        <button @click="destroy"> Destroy </button>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#life-cycle-wrapper",
+            data: {
+                title: "life cycle wradpper ... "
+            },
+            beforeCreate() {
+                console.log("beforeCreate");
+            },
+            created() {
+                console.log("created");
+            },
+            beforeMount() {
+                console.log("beforeMount");
+            },
+            mounted() {
+                console.log("mounted");
+            },
+            beforeUpdate() {
+                console.log("beforeUpdate"); // si la valeur a changer est la meme , rien ne se passe !!  cette fct ne se lance pas
+            },
+            updated() {
+                console.log("updated"); // si la valeur a changer est la meme , rien ne se passe !! cette fct ne se lance pas
+            },
+            beforeDestroy() {
+                console.log("beforeDestroy");
+            },
+            destroyed() {
+                console.log("Destroyed");
+            },
+            methods: {
+                destroy: function() {
+                    this.$destroy() // ça détruit l'instance de vue en cours, du coup aucun code dans cette instance ne sera executé
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

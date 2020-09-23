@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>Document</title>
+</head>
+
+
+
+<body>
+    <div id="app01">
+        <h1> {{title}}</h1>
+    </div>
+
+    <div id="app02">
+        <h1> {{title}}</h1>
+        <button @click="changeTitle" ref="bouton02"> change vm1.title !! </button>
+        <!-- ref !! -->
+    </div>
+
+    <div id="app03">
+        <h1> {{title}}</h1>
+
+        <hr>
+
+        <hello></hello>
+        <hello></hello>
+    </div>
+
+    <div id="app04"></div>
+
+
+    <script>
+        // VM 01 
+        var vm1 = new Vue({
+            el: "#app01",
+            data: {
+                title: "title of app01 ... "
+            }
+        });
+
+
+        // VM 02
+        var vm2 = new Vue({
+
+            el: "#app02",
+            data: {
+                title: "oh !! title of app0 2 ...  "
+            },
+            methods: {
+                changeTitle: function() {
+                    vm1.title = "new title from vm2 !! at : " + new Date();
+                    this.$refs.bouton02.innerText = " text modified by $refs ! " // ICI! le text du boutron $refs.bouton02 modifier ! 
+                }
+            }
+        });
+        console.log
+        console.log("vm2.$refs : ", vm2.$refs);
+
+
+        // VM 03
+        var data03 = {
+            title: "oh !! title of app0 3 ...  "
+        }
+
+        var vm3 = new Vue({
+            el: "#app03",
+            data: data03,
+            //template: "<h2> a monted tpl test from code !!! </h2>"
+        });
+        console.log(vm3._data === data03); // true  -> c/c  donc c'est possible de communiquer avec l'exterieur de l'instance vue !
+        // VM 04
+
+        var vm4 = new Vue({
+            template: "<h2> a monted tpl test from code !!! ..... $$$$  </h2>"
+        });
+
+        vm4.$mount();
+        document.getElementById("app04").appendChild(vm4.$el);
+
+        Vue.component("hello", {
+            template: "<h3> hello component !!! </h3>"
+        })
+    </script>
+</body>
+
+</html>

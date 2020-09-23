@@ -37,7 +37,7 @@ export default class TodoLine extends Vue {
 <style lang="scss" scoped>
    @import "@/components/config/scss/_variables.scss";
  .todo-line {
-     border : $border-default;
+     border : $border-default;         
      padding: $gutter-half;
      margin-bottom:$gutter-half ;
  }
