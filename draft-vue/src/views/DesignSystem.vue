@@ -12,7 +12,8 @@
         <hr>
         <div>
             <h3> images ..</h3>
-                <Image srcImg="../assets/logo.png" legandImg="c'est un label img" />
+                <Image  legandImg="c'est un label img" />
+                <!--  srcImg="~@/assets/logo.png"  -->
         </div>
     </section>
 
@@ -22,7 +23,9 @@
         <div>
             <h3> search bar :  </h3> 
             <!--      <img alt="Vue logo" src="@/assets/logo.png" />  -->
-            <SearchBar placeHolderSB="this is place holder ... " imgSearch="@/assets/logo.png" labelBtn =" this is label ... "  />
+            <SearchBar placeHolderSB="this is place holder ... "  labelBtn =" this is label ... "  />
+            <!-- imgSearch="~@/assets/logo.png"   -->
+            
         </div>
     </section>
   </div>

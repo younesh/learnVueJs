@@ -44,7 +44,7 @@ export default class BasicTestEs6 extends Vue {
 const getUsers = async function() {
     const response = await fetch('https://jsonplaceholder.typicode.com/users')
     const json = await response.json()
- 
+    console.log(json);
     return json
 }
  

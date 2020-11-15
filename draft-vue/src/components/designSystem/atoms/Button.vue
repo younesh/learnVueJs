@@ -19,7 +19,7 @@ export default class Button extends Vue {
    @Prop() readonly label!: string;
    //@Prop() readonly classSpe!: string;
   /* --- DATA VARIABLES ---*/
-    private var02 = "";
+    private var02 = "btn test ";
    /* private datalist: Array<object> = [
       {
         name: 'dupon',
@@ -33,7 +33,7 @@ export default class Button extends Vue {
     */ 
 /* --- LIFE CYCLE ---*/
  created() {
-   console.log("LIFE-CYCLE / created  ");
+   console.log("LIFE-CYCLE / created  " + this.var02);
  }
 
   mounted() {
@@ -51,7 +51,8 @@ export default class Button extends Vue {
 
   /* --- METHODES ---*/
    public doSimthing(): void {
-      console.log('doSimthing methode !! ')
+      console.log('doSimthing methode !! ');
+      console.log('data in this cpt' + this.var02);
    }
 
 }
