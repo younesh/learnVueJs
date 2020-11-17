@@ -8,6 +8,9 @@
         <p> etape 03 : </p>
         <p> etape 03 : </p>
       </div>
+
+         <button @click="increment"> store ( + )</button>
+   <button @click="decrement"> store ( - ) </button>
   
   </section>
 </template>
@@ -77,6 +80,16 @@ export default class Test04 extends Vue {
   /* --- METHODES ---*/
    public doSimthing(): void {
       console.log('doSimthing methode !! ')
+   }
+      public increment(): void {
+       // this.$store.commit("increment");
+       this.$store.dispatch("actionIncrement");
+       console.log("dispatch Acincrement " + new Date());
+   }
+    public decrement(): void {
+       //this.$store.commit("decrement");
+       this.$store.dispatch("actionDecrement");
+       console.log("dispatch deccrement " + new Date());
    }
 
 }

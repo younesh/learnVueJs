@@ -10,9 +10,6 @@
       <p>   computed double de counter :   {{ Double }}</p>
       <p>   watch double de counter :   {{ onCounterChanged() }}</p>
   
-
-   <button @click="increment"> store ( + )</button>
-   <button @click="decrement"> store ( - ) </button>
   </section>
 </template>
 
@@ -74,20 +71,14 @@ export default class Test03 extends Vue {
     if ( this.counter % 4 == 0 ) {
 
         return this.counter + "Oh! c'ets un multible de 4";
+ 
     } else {
          return this.counter + ", mmm no c'est pas un multiple de 4 ";
     }
   }
   /* --- METHODES ---*/
 // 
-   public increment(): void {
-       this.$store.commit("increment");
-       console.log("increment " + new Date());
-   }
-    public decrement(): void {
-       this.$store.commit("decrement");
-       console.log("increment " + new Date());
-   }
+
 
    public doSimthing(): void {
       console.log('doSimthing methode !! ')

@@ -3,6 +3,7 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/todo">Todo list </router-link> |
+      <router-link to="/TodoVuex">Todo Vuex test </router-link> |
       <router-link to="/about">About</router-link>
     </div>
      <span> NB : to lunch this app : </span>

@@ -56,25 +56,25 @@ export default class TodoList extends Vue {
     }
 
     public addOneTodo (taskTile : string) : void {
-      const postedTodo : any = {
-       title : taskTile,
-       completed: false
-      }
-      axios.post(this.ApiUrl , postedTodo )
-            .then( ( todoPost : any ) => {
-              console.log("Posted todo after then  : " , todoPost.data);
-              
-              this.todosData = [...this.todosData, todoPost.data]
-            })
+
+    const postedTodo : any = {
+      title : taskTile,
+      completed: false
+    }
+
+    axios.post(this.ApiUrl , postedTodo )
+        .then( ( todoPost : any ) => {
+          console.log("Posted todo after then  : " , todoPost.data);
+          this.todosData = [...this.todosData, todoPost.data]
+        })
     }
 
     public changeTodoStatus (todostatus : any) {
-      axios.put(this.ApiUrl + todostatus.id, todostatus )
-            .then( ( todoPost : any ) => {
-              console.log(`le status de la tache (${todoPost.data.id}: ${todoPost.data.title}) est changé a ${todoPost.data.completed}`);
-            }) 
+      axios.put(this.ApiUrl + todostatus.id, todostatus)
+        .then((todoPost : any) => {
+          console.log(`le status de la tache (${todoPost.data.id}: ${todoPost.data.title}) est changé a ${todoPost.data.completed}`);
+        })
     }
-
 }
 </script>
 

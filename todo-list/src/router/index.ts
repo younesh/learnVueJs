@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import Home from "../views/Home.vue";
 import TodoView from "../views/TodoView.vue";
+import TodoVuex from "../views/TodoVuex.vue";
 
 Vue.use(VueRouter);
 
@@ -15,6 +16,11 @@ const routes: Array<RouteConfig> = [
     path: "/Todo",
     name: "Todo page",
     component: TodoView
+  },
+  {
+    path: "/TodoVuex",
+    name: "Todo vueX test page",
+    component: TodoVuex
   },
   {
     path: "/about",

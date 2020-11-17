@@ -21,7 +21,11 @@ export default new Vuex.Store({
     actionIncrement : (state) => {
       // this.commit("increment");
       state.commit("increment")
-    }
+    },
+    actionDecrement : (state) => {
+      // this.commit("increment");
+      state.commit("decrement");
+    },
   },
   modules: {},
   getters: {
