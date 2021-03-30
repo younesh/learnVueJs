@@ -1,6 +1,6 @@
 <template>
     <div class="todo-list">
-      <h2> Todo list ... 225 </h2>
+      <h2> Todo list by vueX  </h2>
       <TodoForm />
      <div v-for="todoItem in stateTodos" :key="todoItem.id">
         <transition name="fade">

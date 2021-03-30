@@ -1,19 +1,29 @@
 {
-  "posts": [
+  "todos": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "title": "do cv word ATS",
+      "completed": true,
+      "id": 1
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "title": "do arrefour test js ",
+      "completed": false,
+      "id": 2
+    },
+    {
+      "title": "appler famila at 22h30 !!",
+      "completed": false,
+      "id": 3
+    },
+    {
+      "title": "make food for tommorrow !",
+      "completed": false,
+      "id": 4
+    },
+    {
+      "title": "do 1er seance workout and reamenage space for it",
+      "completed": false,
+      "id": 5
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

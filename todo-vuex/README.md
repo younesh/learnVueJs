@@ -28,6 +28,9 @@ yarn install
 yarn serve
 ```
 
+NB : to lunch this app : yarn serve --port 5051
+to lanch DB json-server : json-server --watch db.json --port 5151
+
 ### Compiles and minifies for production
 ```
 yarn build

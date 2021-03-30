@@ -20,9 +20,10 @@ export default new Vuex.Store({
         },
         UPDATE_TODOS(state, dataTodos) {
             console.log("UPDATE_TODOS , dataTodos >>", dataTodos);
-            state.stateTodos.forEach((itemTodo, index) => {
-                console.log("UPDATE_TODOS >> i =  " + index + " | itemTodo.title = " + itemTodo.title);
-            })
+            // state.stateTodos = state.stateTodos.map(itemTodo => { if (itemTodo.id == dataTodos.id) return dataTodos })
+            /* state.stateTodos.forEach((itemTodo, index) => {
+                 console.log("UPDATE_TODOS >> i =  " + index + " | itemTodo.title = " + itemTodo.title);
+             })*/
         }
     },
     actions: { // aysnchrone function, commit mutation !!
@@ -49,7 +50,7 @@ export default new Vuex.Store({
             axios.put(context.state.ApiUrl + updatedTodo.id, updatedTodo)
                 .then((todoPost) => {
                     console.log(`le status de la tache (${todoPost.data.id}: ${todoPost.data.title}) est changé a ${todoPost.data.completed}`);
-                    context.commit("UPDATE_TODOS", todoPost);
+                    context.commit("UPDATE_TODOS", todoPost.data);
                 })
         }
     },
