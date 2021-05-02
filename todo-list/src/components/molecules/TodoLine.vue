@@ -6,7 +6,7 @@
        </h3>
        <div class="d-flex justify-content-end">
           <button class="btn btn-primary"> edit </button>
-          <button @click="deleteTodo" class="btn btn-danger ml-2"> delete </button>
+          <button @click="deleteTodo" class="btn btn-danger ml-2"> delete (!))</button>
       </div>
   </div>
 </template>

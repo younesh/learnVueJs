@@ -1,12 +1,14 @@
 <template>
   <div class="tests">
-    <h2>tests ...</h2>
+    <h2>tests ... {{numberTests}}</h2>
+    <InputNumber v-model="numberTests" :step=1 :min=5 />
     <BasicTestEs6 />
     <Test01 txtTest="new text test .... at 16:54 " />
     <Test02 />
     <Test03 />
     <Test04 />
     <WpAPI />
+
   </div>
 </template>
 <script lang="ts">
@@ -17,12 +19,16 @@ import Test03 from "@/components/Test03.vue";
 import Test04 from "@/components/Test04.vue";
 import WpAPI from "@/components/WpAPI.vue";
 import BasicTestEs6 from "@/components/BasicTestEs6.vue";
+import InputNumber from "@/components/InputNumber.vue";
+
 @Component({
   components: {
-    Test01, Test02,Test03, Test04,  WpAPI, BasicTestEs6
+    Test01, Test02,Test03, Test04,  WpAPI, BasicTestEs6, InputNumber
   }
 })
-export default class Tests extends Vue {}
+export default class Tests extends Vue {
+   private numberTests = -1;
+}
 </script>
  
  <!-- OLD script js 
